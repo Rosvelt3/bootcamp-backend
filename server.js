@@ -28,7 +28,7 @@ app.use(cookieParser());
 app.use(mongoSanitize());
 app.use(helmet());
 app.use(xss());
-app.use(rateLimit({windowMs: 10 * 60 * 1000, max:100}));
+app.use(rateLimit({windowMs: 10 * 60 * 1000, max:10000}));
 app.use(hpp());
 app.use(cors());
 
