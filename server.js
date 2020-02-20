@@ -31,7 +31,7 @@ app.use(helmet());
 app.use(xss());
 app.use(rateLimit({windowMs: 10 * 60 * 1000, max:10000}));
 app.use(hpp());
-app.use(cors({credentials:true, origin:"localhost:3000"}));
+app.use(cors({credentials:true, origin:"http://localhost:3000"}));
 
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
