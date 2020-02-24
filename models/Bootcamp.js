@@ -56,7 +56,7 @@ const BootcampSchema = new mongoose.Schema({
     },
     careers: {
         type: [String],
-        require: true,
+        required: true,
         enum: [
             'Web Development',
             'Mobile Development',
@@ -74,7 +74,7 @@ const BootcampSchema = new mongoose.Schema({
     averageCost: Number,
     photo: {
         type: String,
-        default: 'no-photo.jpg'
+        default: 'https://via.placeholder.com/250x150'
     },
     housing: {
         type: Boolean,
