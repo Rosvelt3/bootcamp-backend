@@ -10,18 +10,18 @@ const xss = require('xss-clean');
 const rateLimit = require('express-rate-limit');
 const hpp = require('hpp');
 const cors = require('cors');
-const errorHandler = require('./middleware/error')
+const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 const port = process.env.PORT || 5000;
 
 require('dotenv').config({ path: './config/config.env' });
 connectDB();
 
-const bootcamps = require('./routes/bootcamps')
-const courses = require('./routes/courses')
-const auth = require('./routes/auth')
-const users = require('./routes/users')
-const reviews = require('./routes/reviews')
+const bootcamps = require('./routes/bootcamps');
+const courses = require('./routes/courses');
+const auth = require('./routes/auth');
+const users = require('./routes/users');
+const reviews = require('./routes/reviews');
 
 const app = express();
 app.use(express.json());
