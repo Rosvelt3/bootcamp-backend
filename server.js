@@ -41,7 +41,8 @@ app.use(cors({
         } else {
             callback(new Error("Not allowed by cors"));
         }
-    }
+    },
+    methods: ['GET', 'PUT', 'POST', 'DELETE']
 }));
 
 if (process.env.NODE_ENV === 'development') {
