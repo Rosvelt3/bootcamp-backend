@@ -36,13 +36,13 @@ const whitelist =["http://localhost:3000","https://bootcamper-5a096.web.app"];
 app.use(cors({
     credentials:true,
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
-    origin: function(origin, callback){
+    origin: "*"/*function(origin, callback){
         if(whitelist.indexOf(origin) !== -1){
             callback(null, true);
         } else {
             callback(new Error("Not allowed by cors"));
         }
-    }
+    }*/
 }));
 
 if (process.env.NODE_ENV === 'development') {
