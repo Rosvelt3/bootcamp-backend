@@ -36,7 +36,13 @@ const whitelist =["http://localhost:3000","https://infallible-fermi-31a7c5.netli
 app.use(cors({
     credentials:true,
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
-    origin: "*"
+    origin: function(origin, callback){
+        if(whitelist.indexOf(origin) !== -1){
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by cors"));
+        }
+    }
 }));
 
 if (process.env.NODE_ENV === 'development') {
