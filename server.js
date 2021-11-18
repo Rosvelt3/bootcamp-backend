@@ -32,7 +32,7 @@ app.use(xss());
 app.use(rateLimit({windowMs: 10 * 60 * 1000, max:10000}));
 app.use(hpp());
 
-const whitelist =["http://localhost:3000","https://infallible-fermi-31a7c5.netlify.app/"];
+const whitelist =["http://localhost:3000","https://infallible-fermi-31a7c5.netlify.app"];
 app.use(cors({
     credentials:true,
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
