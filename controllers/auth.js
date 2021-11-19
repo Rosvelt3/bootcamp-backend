@@ -61,11 +61,18 @@ exports.getMe = asyncHandler(async (req, res, next) => {
 // @route   GET /api/v1/auth/logout
 // @access  Private
 exports.logout = asyncHandler(async (req, res, next) => {
-  res.clearCookie("token", { httpOnly: true, secure: true, sameSite: "none" });
-  // res.cookie('token','none',{
-  //     expires: new Date(Date.now() + 10 * 1000),
-  //     httpOnly: true
-  // });
+  const options = {
+    httpOnly: true,
+    secure: false,
+    sameSite: "lax",
+  };
+
+  if (process.env.NODE_ENV === "production") {
+    options.secure = true;
+  }
+
+  res.clearCookie("token", options);
+
   res.status(200).json({
     success: true,
     data: {},
@@ -182,7 +189,7 @@ const sendTokenResponse = (user, statusCode, res) => {
     ),
     httpOnly: true,
     secure: false,
-    sameSite: "none",
+    sameSite: "lax",
   };
 
   if (process.env.NODE_ENV === "production") {
