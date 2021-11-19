@@ -64,7 +64,7 @@ exports.logout = asyncHandler(async (req, res, next) => {
   const options = {
     httpOnly: true,
     secure: false,
-    sameSite: "lax",
+    sameSite: "none",
   };
 
   if (process.env.NODE_ENV === "production") {
@@ -189,7 +189,7 @@ const sendTokenResponse = (user, statusCode, res) => {
     ),
     httpOnly: true,
     secure: false,
-    sameSite: "lax",
+    sameSite: "none",
   };
 
   if (process.env.NODE_ENV === "production") {
